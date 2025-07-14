@@ -48,7 +48,17 @@ infiniStatus_t infinicclAllReduce(
 - recvbuf: 输出缓冲区，存放归约后的结果数据。
 - count: 元素个数（而不是字节数）。
 - datatype: 数据类型，枚举类型 infiniDtype_t（如 INFINI_DTYPE_F32）。
-- op: 归约操作类型，枚举类型 infinicclReduceOp_t：
+- op: 归约操作类型，枚举类型 infinicclReduceOp_t。 
+  其定义如下: 
+```
+  typedef enum {
+    INFINICCL_SUM = 0,
+    INFINICCL_PROD = 1,
+    INFINICCL_MAX = 2,
+    INFINICCL_MIN = 3,
+    INFINICCL_AVG = 4,
+} infinicclReduceOp_t;
+```
 - comm: 通信组句柄。
 - stream: 指定操作执行在哪个 infinirtStream_t 流上。
 - 说明：在通信组内所有设备上执行 AllReduce 操作。各设备的 recvbuf 将接收到相同的归约结果。
