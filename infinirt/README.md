@@ -138,7 +138,7 @@ infiniStatus_t infinirtEventDestroy(infinirtEvent_t event);
 
 - event: 需要销毁的事件。
 
-### 内存管理
+### 4. 内存管理
 
 #### 分配设备内存
 
