@@ -141,7 +141,6 @@ infiniStatus_t infinirtEventDestroy(infinirtEvent_t event);
 ### 4. 内存管理
 
 #### 分配设备内存
-
 ``` c++
 infiniStatus_t infinirtMalloc(void **p_ptr, size_t size);
 ```
@@ -188,10 +187,10 @@ infiniStatus_t infinirtMemcpy(void *dst, const void *src, size_t size, infinirtM
   其定义如下：
 ``` c++ 
 typedef enum {
-    INFINIRT_MEMCPY_H2H = 0,
-    INFINIRT_MEMCPY_H2D = 1,
-    INFINIRT_MEMCPY_D2H = 2,
-    INFINIRT_MEMCPY_D2D = 3,
+    INFINIRT_MEMCPY_H2H = 0, //Host to Host
+    INFINIRT_MEMCPY_H2D = 1, //Host to Device
+    INFINIRT_MEMCPY_D2H = 2, //Device to Host
+    INFINIRT_MEMCPY_D2D = 3, //Device to Device
 } infinirtMemcpyKind_t;
 
 ```
@@ -205,7 +204,7 @@ infiniStatus_t infinirtMemcpyAsync(void *dst, const void *src, size_t size, infi
 - dst: 目标地址。
 - src: 源地址。
 - size: 拷贝的字节数。
-- kind: 拷贝类型。
+- kind: 拷贝类型(见[infinirtMemcpy](#同步内存拷贝))。
 - stream: 所用的异步流。
 
 #### 异步分配设备内存 (Stream-ordered memory)
