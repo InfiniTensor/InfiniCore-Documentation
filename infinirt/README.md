@@ -184,7 +184,17 @@ infiniStatus_t infinirtMemcpy(void *dst, const void *src, size_t size, infinirtM
 - dst: 目标地址。
 - src: 源地址。
 - size: 拷贝的字节数。
-- kind: 拷贝类型（主机到设备、设备到主机等）。
+- kind: 枚举类型infinirtMemcpyKind_t 
+  其定义如下：
+``` c++ 
+typedef enum {
+    INFINIRT_MEMCPY_H2H = 0,
+    INFINIRT_MEMCPY_H2D = 1,
+    INFINIRT_MEMCPY_D2H = 2,
+    INFINIRT_MEMCPY_D2D = 3,
+} infinirtMemcpyKind_t;
+
+```
 
 #### 异步内存拷贝
 
