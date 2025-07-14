@@ -47,7 +47,7 @@ infiniStatus_t infinicclAllReduce(
 - sendbuf: 输入缓冲区，存放需要参与 AllReduce 的本地数据。
 - recvbuf: 输出缓冲区，存放归约后的结果数据。
 - count: 元素个数（而不是字节数）。
-- datatype: 数据类型，枚举类型 infiniDtype_t（如 INFINI_DTYPE_F32）。
+- datatype: [枚举类型infiniDtype_t](/common/dtype/README.md)。
 - op: 归约操作类型，枚举类型 infinicclReduceOp_t。 
   其定义如下: 
 ```
