@@ -14,6 +14,6 @@
 - [`InfiniOP`]：统一算子库，提供各类基于张量的高性能算子计算功能。
 - [`InfiniCCL`]：统一集合通信库，提供常用的集合通信功能，包括点对点、广播、聚合等。
 
-[`InfiniRT`]:/
+[`InfiniRT`]:/infinirt/README.md
 [`InfiniOP`]:/infiniop/README.md
-[`InfiniCCL`]:/
+[`InfiniCCL`]:/infiniccl/README.md

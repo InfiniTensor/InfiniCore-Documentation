@@ -1,19 +1,19 @@
-﻿
-# `Add`
 
-`Add`, 即**加法**算子，为双目逐元素算子。其计算可被表述为：
+# `Sub`
 
-$$ c = a + b $$
+`Sub`, 即**减法**算子，为双目逐元素算子。其计算可被表述为：
 
-其中 `a` 和 `b` 为输入，`c` 为输出。
+$$ c = a - b $$
+
+其中 a 和 b 为输入，c 为输出。
 
 ## 接口
 
 ### 计算
 
 ```c
-infiniStatus_t infiniopAdd(
-    infiniopAddDescriptor_t desc,
+infiniStatus_t infiniopSub(
+    infiniopSubDescriptor_t desc,
     void *workspace,
     size_t workspace_size,
     void *c,
@@ -26,7 +26,7 @@ infiniStatus_t infiniopAdd(
 <div style="background-color: lightblue; padding: 1px;"> 参数： </div>
 
 - `desc`:
-  已使用 `infiniopCreateAddDescriptor()` 初始化的算子描述符；
+  已使用 `infiniopCreateSubDescriptor()` 初始化的算子描述符；
 - `workspace`:
   指向算子计算所需的额外工作空间；
 - `workspace_size`:
@@ -47,9 +47,9 @@ infiniStatus_t infiniopAdd(
 ### 创建算子描述
 
 ```c
-infiniStatus_t infiniopCreateAddDescriptor(
+infiniStatus_t infiniopCreateSubDescriptor(
     infiniopHandle_t handle,
-    infiniopAddDescriptor_t *desc_ptr,
+    infiniopSubDescriptor_t *desc_ptr,
     infiniopTensorDescriptor_t c_desc,
     infiniopTensorDescriptor_t a_desc,
     infiniopTensorDescriptor_t b_desc
@@ -61,7 +61,7 @@ infiniStatus_t infiniopCreateAddDescriptor(
 - `handle`:
   `infiniopHandle_t` 类型的硬件控柄。详情请看：[`InfiniopHandle_t`]。
 - `desc_ptr`:
-  `infiniopAddDescriptor_t` 指针，指向将被初始化的算子描述符地址；
+  `infiniopSubDescriptor_t` 指针，指向将被初始化的算子描述符地址；
 - `c_desc` - { dT | (d1,...,dn) | (...) }:
   算子计算参数 `c` 的张量描述，支持原位计算。
 - `a_desc` - { dT | (d1,...,dn) | (...) }:
@@ -83,8 +83,8 @@ infiniStatus_t infiniopCreateAddDescriptor(
 ### 计算额外工作空间
 
 ```c
-infiniStatus_t infiniopGetAddWorkspaceSize(
-    infiniopAddDescriptor_t desc,
+infiniStatus_t infiniopGetSubWorkspaceSize(
+    infiniopSubDescriptor_t desc,
     size_t *size
 );
 ```
@@ -92,7 +92,7 @@ infiniStatus_t infiniopGetAddWorkspaceSize(
 <div style="background-color: lightblue; padding: 1px;"> 参数：</div>
 
 - `desc`:
-  已使用 `infiniopCreateAddDescriptor()` 初始化的算子描述符；
+  已使用 `infiniopCreateSubDescriptor()` 初始化的算子描述符；
 - `size`:
   额外空间大小的计算结果的写入地址；
 
@@ -103,8 +103,8 @@ infiniStatus_t infiniopGetAddWorkspaceSize(
 ### 销毁算子描述符
 
 ```c
-infiniStatus_t infiniopDestroyAddDescriptor(
-    infiniopAddDescriptor_t desc
+infiniStatus_t infiniopDestroySubDescriptor(
+    infiniopSubDescriptor_t desc
 );
 ```
 
