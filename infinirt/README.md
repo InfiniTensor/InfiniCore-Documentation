@@ -183,9 +183,9 @@ infiniStatus_t infinirtMemcpy(void *dst, const void *src, size_t size, infinirtM
 - dst: 目标地址。
 - src: 源地址。
 - size: 拷贝的字节数。
-- kind: 枚举类型infinirtMemcpyKind_t 
+- kind: 枚举类型infinirtMemcpyKind_t
   其定义如下：
-``` c++ 
+``` c++
 typedef enum {
     INFINIRT_MEMCPY_H2H = 0, //Host to Host
     INFINIRT_MEMCPY_H2D = 1, //Host to Device
@@ -230,45 +230,48 @@ infiniStatus_t infinirtFreeAsync(void *ptr, infinirtStream_t stream);
 
 ### 5. 虚拟内存和物理内存管理
 
-#### 获取内存属性
+#### 类型定义
 
 ``` c++
-infiniStatus_t infinirtGetMemProp(infinirtMemProp_t *prop, infiniDevice_t device, int device_id);
+typedef void *infinirtDeviceptr_t;      // 设备指针类型
+typedef void *infinirtAllocationHandle_t;// 内存分配句柄类型
+typedef void *infinirtPhyMem_t;         // 物理内存对象类型
+typedef void *infinirtVirtualMem_t;     // 虚拟内存对象类型
 ```
-
-- prop: 返回内存属性对象。
-- device: 设备类型。
-- device_id: 设备ID。
 
 #### 获取内存最小粒度
 
 ``` c++
-infiniStatus_t infinirtGetMemGranularityMinimum(size_t *granularity, infinirtMemProp_t prop);
+infiniStatus_t infinirtGetMemGranularityMinimum(size_t *granularity);
 ```
 
 - granularity: 返回内存分配的最小粒度大小。
-- prop: 内存属性对象。
 
 #### 创建物理内存
 
 ``` c++
-infiniStatus_t infinirtCreatePhysicalMem(infinirtPhyMem_t *phy_mem, size_t len, infinirtMemProp_t prop);
+infiniStatus_t infinirtCreatePhysicalMem(infinirtPhyMem_t *phy_mem, size_t len);
 ```
 
 - phy_mem: 返回创建的物理内存对象。
 - len: 物理内存大小（单位：字节）。
-- prop: 内存属性对象。
+
+#### 释放物理内存
+
+``` c++
+infiniStatus_t infinirtReleasePhysicalMem(infinirtPhyMem_t phy_mem);
+```
+
+- phy_mem: 需要释放的物理内存对象。
 
 #### 创建虚拟内存
 
 ``` c++
-infiniStatus_t infinirtCreateVirtualMem(infinirtVirtualMem_t *vm, infiniDevice_t device, size_t len, size_t min_addr);
+infiniStatus_t infinirtCreateVirtualMem(infinirtVirtualMem_t *vm, size_t len);
 ```
 
 - vm: 返回创建的虚拟内存对象。
-- device: 设备类型。
 - len: 虚拟内存大小（单位：字节）。
-- min_addr: 最小地址要求。
 
 #### 映射虚拟内存
 
@@ -289,3 +292,11 @@ infiniStatus_t infinirtUnmapVirtualMem(infinirtVirtualMem_t vm, size_t offset);
 
 - vm: 要解除映射的虚拟内存对象。
 - offset: 解除映射的偏移量。
+
+#### 释放虚拟内存
+
+``` c++
+infiniStatus_t infinirtReleaseVirtualMem(infinirtVirtualMem_t vm);
+```
+
+- vm: 需要释放的虚拟内存对象。
