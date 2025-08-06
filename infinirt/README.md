@@ -227,3 +227,65 @@ infiniStatus_t infinirtFreeAsync(void *ptr, infinirtStream_t stream);
 
 - ptr: 要释放的设备内存地址。
 - stream: 异步释放所用的流。
+
+### 5. 虚拟内存和物理内存管理
+
+#### 获取内存属性
+
+``` c++
+infiniStatus_t infinirtGetMemProp(infinirtMemProp_t *prop, infiniDevice_t device, int device_id);
+```
+
+- prop: 返回内存属性对象。
+- device: 设备类型。
+- device_id: 设备ID。
+
+#### 获取内存最小粒度
+
+``` c++
+infiniStatus_t infinirtGetMemGranularityMinimum(size_t *granularity, infinirtMemProp_t prop);
+```
+
+- granularity: 返回内存分配的最小粒度大小。
+- prop: 内存属性对象。
+
+#### 创建物理内存
+
+``` c++
+infiniStatus_t infinirtCreatePhysicalMem(infinirtPhyMem_t *phy_mem, size_t len, infinirtMemProp_t prop);
+```
+
+- phy_mem: 返回创建的物理内存对象。
+- len: 物理内存大小（单位：字节）。
+- prop: 内存属性对象。
+
+#### 创建虚拟内存
+
+``` c++
+infiniStatus_t infinirtCreateVirtualMem(infinirtVirtualMem_t *vm, infiniDevice_t device, size_t len, size_t min_addr);
+```
+
+- vm: 返回创建的虚拟内存对象。
+- device: 设备类型。
+- len: 虚拟内存大小（单位：字节）。
+- min_addr: 最小地址要求。
+
+#### 映射虚拟内存
+
+``` c++
+infiniStatus_t infinirtMapVirtualMem(void **mapped_ptr, infinirtVirtualMem_t vm, size_t offset, infinirtPhyMem_t phy_mem);
+```
+
+- mapped_ptr: 返回映射后的内存指针。
+- vm: 虚拟内存对象。
+- offset: 映射的偏移量。
+- phy_mem: 要映射的物理内存对象。
+
+#### 解除虚拟内存映射
+
+``` c++
+infiniStatus_t infinirtUnmapVirtualMem(infinirtVirtualMem_t vm, size_t offset);
+```
+
+- vm: 要解除映射的虚拟内存对象。
+- offset: 解除映射的偏移量。
