@@ -5,7 +5,7 @@
 
 $$ Silu(x) = x * \sigma(x) = \frac{x}{1 + e^{-x}}  $$
 
-对应到算子实现，$ouput = Silu(input)$。其中 `input`为输入，`output` 为输出。
+对应到算子实现, $ouput = Silu(input)$ 。其中 `input`为输入，`output` 为输出。
 
 ## 接口
 

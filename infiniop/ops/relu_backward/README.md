@@ -3,10 +3,12 @@
 
 `ReluBackward`, 即**反向Relu**算子，为单目逐元素算子。其计算可被表述为：
 
-$$grad\_input = \begin{cases} 
+```math
+grad\_input = \begin{cases} 
     \text{grad\_output} & \text{if~ input} \gt 0 \\ 
     \text{0} & \text{if~ input} \leq 0  
-\end{cases} $$
+\end{cases}
+```
 
 其中 `input` 和 `grad_output` 为输入，`grad_input` 为输出：
 

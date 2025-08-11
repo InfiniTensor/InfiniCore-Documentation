@@ -3,7 +3,9 @@
 
 `CrossEntropyLossBackward`, 即**交叉熵损失函数反向**算子，为双目逐元素算子。其计算可被表述为：
 
-$$ grad\_logits = \frac{(probs - target)}{N} $$
+```math
+grad\_logits = \frac{(probs - target)}{N}
+```
 
 其中 `probs` 和 `target` 为输入，`grad_logits` 为输出，`N`为batch_size。
 - `probs`: 形状为[batch_size, num_classes]，表示softmax输出的概率分布$(\left( \sum = 1.0 \right))$。

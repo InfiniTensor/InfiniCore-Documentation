@@ -3,11 +3,14 @@
 
 `ReluBackward`, 即**反向Relu**算子，为单目逐元素算子。其计算可被表述为：
 
-$$\frac{\partial~\text{GELU}}{\partial~ x} = \frac{1}{2} \left[1 + \tanh\left(\sqrt{\frac{2}{\pi}} (x + 0.044715x^3)\right)\right] 
+```math
+\frac{\partial~\text{GELU}}{\partial~ x} = \frac{1}{2} \left[1 + \tanh\left(\sqrt{\frac{2}{\pi}} (x + 0.044715x^3)\right)\right] 
 + \frac{1}{2} x \cdot \text{sech}^2\left(\sqrt{\frac{2}{\pi}} (x + 0.044715x^3)\right)
-\cdot \sqrt{\frac{2}{\pi}} (1 + 0.134145x^2) \\
+\cdot \sqrt{\frac{2}{\pi}} (1 + 0.134145x^2) 
+```
+```math
 grad\_input = \frac{\partial~\text{GELU}}{\partial~ input} * grad\_output
-$$
+```
 
 其中 `input` 和 `grad_output` 为输入，`grad_input` 为输出：
 
