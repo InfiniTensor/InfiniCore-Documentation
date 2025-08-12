@@ -233,7 +233,6 @@ infiniStatus_t infinirtFreeAsync(void *ptr, infinirtStream_t stream);
 #### 类型定义
 
 ``` c++
-typedef void *infinirtDeviceptr_t;      // 设备指针类型
 typedef void *infinirtAllocationHandle_t;// 物理内存分配句柄类型
 ```
 
@@ -265,7 +264,7 @@ infiniStatus_t infinirtReleasePhysicalMem(infinirtAllocationHandle_t pm_handle);
 #### 创建虚拟内存
 
 ``` c++
-infiniStatus_t infinirtCreateVirtualMem(infinirtDeviceptr_t *vm, size_t len);
+infiniStatus_t infinirtCreateVirtualMem(void **vm, size_t len);
 ```
 
 - vm: 返回创建的虚拟内存指针。
@@ -274,7 +273,7 @@ infiniStatus_t infinirtCreateVirtualMem(infinirtDeviceptr_t *vm, size_t len);
 #### 映射虚拟内存
 
 ``` c++
-infiniStatus_t infinirtMapVirtualMem(infinirtDeviceptr_t vm, size_t len, size_t offset, infinirtAllocationHandle_t pm_handle);
+infiniStatus_t infinirtMapVirtualMem(void *vm, size_t len, size_t offset, infinirtAllocationHandle_t pm_handle);
 ```
 
 - vm: 虚拟内存指针。
@@ -285,7 +284,7 @@ infiniStatus_t infinirtMapVirtualMem(infinirtDeviceptr_t vm, size_t len, size_t 
 #### 解除虚拟内存映射
 
 ``` c++
-infiniStatus_t infinirtUnmapVirtualMem(infinirtDeviceptr_t vm, size_t len);
+infiniStatus_t infinirtUnmapVirtualMem(void *vm, size_t len);
 ```
 
 - vm: 要解除映射的虚拟内存指针。
@@ -294,7 +293,7 @@ infiniStatus_t infinirtUnmapVirtualMem(infinirtDeviceptr_t vm, size_t len);
 #### 释放虚拟内存
 
 ``` c++
-infiniStatus_t infinirtReleaseVirtualMem(infinirtDeviceptr_t vm, size_t len);
+infiniStatus_t infinirtReleaseVirtualMem(void *vm, size_t len);
 ```
 
 - vm: 需要释放的虚拟内存指针。
