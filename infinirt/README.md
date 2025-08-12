@@ -234,9 +234,7 @@ infiniStatus_t infinirtFreeAsync(void *ptr, infinirtStream_t stream);
 
 ``` c++
 typedef void *infinirtDeviceptr_t;      // 设备指针类型
-typedef void *infinirtAllocationHandle_t;// 内存分配句柄类型
-typedef void *infinirtPhyMem_t;         // 物理内存对象类型
-typedef void *infinirtVirtualMem_t;     // 虚拟内存对象类型
+typedef void *infinirtAllocationHandle_t;// 物理内存分配句柄类型
 ```
 
 #### 获取内存最小粒度
@@ -250,53 +248,54 @@ infiniStatus_t infinirtGetMemGranularityMinimum(size_t *granularity);
 #### 创建物理内存
 
 ``` c++
-infiniStatus_t infinirtCreatePhysicalMem(infinirtPhyMem_t *phy_mem, size_t len);
+infiniStatus_t infinirtCreatePhysicalMem(infinirtAllocationHandle_t *pm_handle, size_t len);
 ```
 
-- phy_mem: 返回创建的物理内存对象。
+- pm_handle: 返回创建的物理内存句柄。
 - len: 物理内存大小（单位：字节）。
 
 #### 释放物理内存
 
 ``` c++
-infiniStatus_t infinirtReleasePhysicalMem(infinirtPhyMem_t phy_mem);
+infiniStatus_t infinirtReleasePhysicalMem(infinirtAllocationHandle_t pm_handle);
 ```
 
-- phy_mem: 需要释放的物理内存对象。
+- pm_handle: 需要释放的物理内存句柄。
 
 #### 创建虚拟内存
 
 ``` c++
-infiniStatus_t infinirtCreateVirtualMem(infinirtVirtualMem_t *vm, size_t len);
+infiniStatus_t infinirtCreateVirtualMem(infinirtDeviceptr_t *vm, size_t len);
 ```
 
-- vm: 返回创建的虚拟内存对象。
+- vm: 返回创建的虚拟内存指针。
 - len: 虚拟内存大小（单位：字节）。
 
 #### 映射虚拟内存
 
 ``` c++
-infiniStatus_t infinirtMapVirtualMem(void **mapped_ptr, infinirtVirtualMem_t vm, size_t offset, infinirtPhyMem_t phy_mem);
+infiniStatus_t infinirtMapVirtualMem(infinirtDeviceptr_t vm, size_t len, size_t offset, infinirtAllocationHandle_t pm_handle);
 ```
 
-- mapped_ptr: 返回映射后的内存指针。
-- vm: 虚拟内存对象。
+- vm: 虚拟内存指针。
+- len: 映射的内存大小（单位：字节）。
 - offset: 映射的偏移量。
-- phy_mem: 要映射的物理内存对象。
+- pm_handle: 要映射的物理内存句柄。
 
 #### 解除虚拟内存映射
 
 ``` c++
-infiniStatus_t infinirtUnmapVirtualMem(infinirtVirtualMem_t vm, size_t offset);
+infiniStatus_t infinirtUnmapVirtualMem(infinirtDeviceptr_t vm, size_t len);
 ```
 
-- vm: 要解除映射的虚拟内存对象。
-- offset: 解除映射的偏移量。
+- vm: 要解除映射的虚拟内存指针。
+- len: 解除映射的内存大小（单位：字节）。
 
 #### 释放虚拟内存
 
 ``` c++
-infiniStatus_t infinirtReleaseVirtualMem(infinirtVirtualMem_t vm);
+infiniStatus_t infinirtReleaseVirtualMem(infinirtDeviceptr_t vm, size_t len);
 ```
 
-- vm: 需要释放的虚拟内存对象。
+- vm: 需要释放的虚拟内存指针。
+- len: 释放的内存大小（单位：字节）。
