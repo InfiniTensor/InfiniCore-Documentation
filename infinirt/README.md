@@ -230,12 +230,6 @@ infiniStatus_t infinirtFreeAsync(void *ptr, infinirtStream_t stream);
 
 ### 5. 虚拟内存和物理内存管理
 
-#### 类型定义
-
-``` c++
-typedef void *infinirtAllocationHandle_t;// 物理内存分配句柄类型
-```
-
 #### 获取内存最小粒度
 
 ``` c++
@@ -247,7 +241,7 @@ infiniStatus_t infinirtGetMemGranularityMinimum(size_t *granularity);
 #### 创建物理内存
 
 ``` c++
-infiniStatus_t infinirtCreatePhysicalMem(infinirtAllocationHandle_t *pm_handle, size_t len);
+infiniStatus_t infinirtCreatePhysicalMem(infinirtPhysicalMemoryHandle_t *pm_handle, size_t len);
 ```
 
 - pm_handle: 返回创建的物理内存句柄。
@@ -256,7 +250,7 @@ infiniStatus_t infinirtCreatePhysicalMem(infinirtAllocationHandle_t *pm_handle, 
 #### 释放物理内存
 
 ``` c++
-infiniStatus_t infinirtReleasePhysicalMem(infinirtAllocationHandle_t pm_handle);
+infiniStatus_t infinirtReleasePhysicalMem(infinirtPhysicalMemoryHandle_t pm_handle);
 ```
 
 - pm_handle: 需要释放的物理内存句柄。
@@ -273,7 +267,7 @@ infiniStatus_t infinirtCreateVirtualMem(void **vm, size_t len);
 #### 映射虚拟内存
 
 ``` c++
-infiniStatus_t infinirtMapVirtualMem(void *vm, size_t len, size_t offset, infinirtAllocationHandle_t pm_handle);
+infiniStatus_t infinirtMapVirtualMem(void *vm, size_t len, size_t offset, infinirtPhysicalMemoryHandle_t pm_handle);
 ```
 
 - vm: 虚拟内存指针。
@@ -282,7 +276,6 @@ infiniStatus_t infinirtMapVirtualMem(void *vm, size_t len, size_t offset, infini
 - pm_handle: 要映射的物理内存句柄。
 
 #### 解除虚拟内存映射
-
 ``` c++
 infiniStatus_t infinirtUnmapVirtualMem(void *vm, size_t len);
 ```
