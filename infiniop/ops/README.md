@@ -16,3 +16,4 @@
 - [`ReduceMean`](/infiniop/ops/reduce_mean/README.md)
 - [`BatchNorm`](/infiniop/ops/batch_norm/README.md)
 - [`BatchNormBackward`](/infiniop/ops/batch_norm_backward/README.md)
+- [`LayerNorm`](/infiniop/ops/layer_norm/README.md)
