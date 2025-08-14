@@ -16,3 +16,4 @@
 - [`Gather`](/infiniop/ops/gather/README.md)
 - [`Scatter`](/infiniop/ops/scatter/README.md)
 - [`Tril`](/infiniop/ops/tril/README.md)
+- [`Triu`](/infiniop/ops/triu/README.md)
