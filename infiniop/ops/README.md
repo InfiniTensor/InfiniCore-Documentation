@@ -15,3 +15,4 @@
 - [`IndexCopyInplace`](/infiniop/ops/index_copy_inplace/README.md)
 - [`Gather`](/infiniop/ops/gather/README.md)
 - [`Scatter`](/infiniop/ops/scatter/README.md)
+- [`Tril`](/infiniop/ops/tril/README.md)
