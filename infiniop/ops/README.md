@@ -20,3 +20,4 @@
 - [`ReLUBackward`](/infiniop/ops/relu_backward/README.md)
 - [`GeLU`](/infiniop/ops/gelu/README.md)
 - [`GeLUBackward`](/infiniop/ops/gelu_backward/README.md)
+- [`CrossEntropyLossBackward`](/infiniop/ops/cross_entropy_loss_backward/README.md)
