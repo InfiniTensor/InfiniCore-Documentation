@@ -18,3 +18,4 @@
 - [`Or`](/infiniop/ops/or/README.md)
 - [`Equal`](/infiniop/ops/equal/README.md)
 - [`ReLUBackward`](/infiniop/ops/relu_backward/README.md)
+- [`GeLU`](/infiniop/ops/gelu/README.md)
