@@ -17,3 +17,4 @@
 - [`Scatter`](/infiniop/ops/scatter/README.md)
 - [`Tril`](/infiniop/ops/tril/README.md)
 - [`Triu`](/infiniop/ops/triu/README.md)
+- [`Linear`](/infiniop/ops/linear/README.md)
