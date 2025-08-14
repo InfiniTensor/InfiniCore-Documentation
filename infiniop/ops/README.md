@@ -14,3 +14,4 @@
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
 - [`ReduceMax`](/infiniop/ops/reduce_max/README.md)
 - [`ReduceMean`](/infiniop/ops/reduce_mean/README.md)
+- [`BatchNorm`](/infiniop/ops/batch_norm/README.md)
