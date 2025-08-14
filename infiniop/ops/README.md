@@ -14,3 +14,4 @@
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
 - [`Silu`](/infiniop/ops/silu/README.md)
 - [`Div`](/infiniop/ops/div/README.md)
+- [`And`](/infiniop/ops/and/README.md)
