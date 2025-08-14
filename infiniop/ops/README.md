@@ -16,3 +16,4 @@
 - [`Div`](/infiniop/ops/div/README.md)
 - [`And`](/infiniop/ops/and/README.md)
 - [`Or`](/infiniop/ops/or/README.md)
+- [`Equal`](/infiniop/ops/equal/README.md)
