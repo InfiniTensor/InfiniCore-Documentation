@@ -12,3 +12,4 @@
 - [`Softmax`](/infiniop/ops/softmax/README.md)
 - [`Sub`](/infiniop/ops/sub/README.md)
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
+- [`Silu`](/infiniop/ops/silu/README.md)
