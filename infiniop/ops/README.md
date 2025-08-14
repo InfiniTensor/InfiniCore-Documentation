@@ -14,3 +14,4 @@
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
 - [`IndexCopyInplace`](/infiniop/ops/index_copy_inplace/README.md)
 - [`Gather`](/infiniop/ops/gather/README.md)
+- [`Scatter`](/infiniop/ops/scatter/README.md)
