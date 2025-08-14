@@ -17,3 +17,4 @@
 - [`BatchNorm`](/infiniop/ops/batch_norm/README.md)
 - [`BatchNormBackward`](/infiniop/ops/batch_norm_backward/README.md)
 - [`LayerNorm`](/infiniop/ops/layer_norm/README.md)
+- [`LayerNormBackward`](/infiniop/ops/layer_norm_backward/README.md)
