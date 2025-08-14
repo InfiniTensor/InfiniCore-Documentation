@@ -15,3 +15,4 @@
 - [`Silu`](/infiniop/ops/silu/README.md)
 - [`Div`](/infiniop/ops/div/README.md)
 - [`And`](/infiniop/ops/and/README.md)
+- [`Or`](/infiniop/ops/or/README.md)
