@@ -12,3 +12,4 @@
 - [`Softmax`](/infiniop/ops/softmax/README.md)
 - [`Sub`](/infiniop/ops/sub/README.md)
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
+- [`IndexCopyInplace`](/infiniop/ops/index_copy_inplace/README.md)
