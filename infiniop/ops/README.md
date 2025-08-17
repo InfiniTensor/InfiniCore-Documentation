@@ -12,3 +12,5 @@
 - [`Softmax`](/infiniop/ops/softmax/README.md)
 - [`Sub`](/infiniop/ops/sub/README.md)
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
+- [`ReduceMax`](/infiniop/ops/reduce_max/README.md)
+- [`ReduceMean`](/infiniop/ops/reduce_mean/README.md)
