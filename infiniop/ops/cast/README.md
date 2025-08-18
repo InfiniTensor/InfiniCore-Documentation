@@ -1,26 +1,33 @@
 ﻿
-# `HardSwish`
+# `Cast`
 
-`HardSwish`, 即**近似激活函数**，为单目逐元素算子。其计算可被表述为：
+`Cast`，即**数据类型转换**算子，为单目逐元素算子。其计算可被表述为：
 
 $$
-output = \mathrm{HardSwish}(input) =
-\begin{cases}
-0, & input \leq -3 \\
-\dfrac{input \cdot (input+3)}{6}, & -3 < input < 3 \\
-input, & input \geq 3
-\end{cases}
+output = \text{Cast}(input, dtype_{dst})
 $$
 
-其中 `input` 为输入，`output` 为输出。
+其中：  
+- `input`：输入张量；  
+- `dtype_{dst}`：目标数据类型；  
+- `output`：输出张量，为 `input` 转换到目标类型后的结果。  
+
+## 已支持的类型转换
+
+- **整型 <-> 整型**  
+- **无符号整型 <-> 无符号整型**  
+- **浮点型 <-> 浮点型**  
+- **整型 -> 浮点型**  
+- **无符号整型 -> 浮点型**  
+- **无符号整型 -> 整型**
 
 ## 接口
 
 ### 计算
 
 ```c
-infiniStatus_t infiniopHardswish(
-    infiniopHardswishDescriptor_t desc,
+infiniStatus_t infiniopCast(
+    infiniopCastDescriptor_t desc,
     void *workspace,
     size_t workspace_size,
     void *output,
@@ -32,7 +39,7 @@ infiniStatus_t infiniopHardswish(
 <div style="background-color: lightblue; padding: 1px;"> 参数： </div>
 
 - `desc`:
-  已使用 `infiniopCreateHardswishDescriptor()` 初始化的算子描述符；
+  已使用 `infiniopCreateCastDescriptor()` 初始化的算子描述符；
 - `workspace`:
   指向算子计算所需的额外工作空间；
 - `workspace_size`:
@@ -51,9 +58,9 @@ infiniStatus_t infiniopHardswish(
 ### 创建算子描述
 
 ```c
-infiniopCreateHardswishDescriptor(
+infiniopCreateCastDescriptor(
     infiniopHandle_t handle,
-    infiniopHardswishDescriptor_t *desc_ptr,
+    infiniopCastDescriptor_t *desc_ptr,
     infiniopTensorDescriptor_t output_desc,
     infiniopTensorDescriptor_t input_desc
 );
@@ -64,17 +71,17 @@ infiniopCreateHardswishDescriptor(
 - `handle`:
   `infiniopHandle_t` 类型的硬件控柄。详情请看：[`InfiniopHandle_t`]。
 - `desc_ptr`:
-  `infiniopHardswishDescriptor_t` 指针，指向将被初始化的算子描述符地址；
-- `output_desc` - { dT | (d1,...,dn) | (...) }:
-  算子计算参数 `output` 的张量描述，支持原位计算。
-- `input_desc` - { dT | (d1,...,dn) | (...) }:
-  算子计算参数 `input` 的张量描述，支持原位计算，支持多向广播。
+  `infiniopCastDescriptor_t` 指针，指向将被初始化的算子描述符地址；
+- `output_desc` - { dTout | (d1,...,dn) | (...) }:
+  算子计算参数 `output` 的张量描述。
+- `input_desc` - { dTin | (d1,...,dn) | (...) }:
+  算子计算参数 `input` 的张量描述，支持多向广播。
 
 参数限制：
 
-- `dT`:  (`Float16`, `Float32`, `Float64`, `BFloat16`) 之一。
+- `dTout` 或 `dTin`:  (`Float16`, `Float32`, `Float64`, `Int32`, `Int64`, `UInt32`, `UInt64`) 之一。
 - 输入 `input` 的形状需与 `output` 相同。`input` 涉及多向广播时需调整步长以匹配多向广播的映射关系。
-- 支持原位计算，即计算时 `output` 可以和 `input` 指向同一地址。
+- 不支持原位计算，即计算时 `output` 不可以和 `input` 指向同一地址。
 - 计算输出参数 `output` 不能进行广播（`output` 的步长不能涉及广播设置，即步长不能有 0）
 
 <div style="background-color: lightblue; padding: 1px;"> 返回值：</div>
@@ -84,8 +91,8 @@ infiniopCreateHardswishDescriptor(
 ### 计算额外工作空间
 
 ```c
-infiniStatus_t infiniopGetHardswishWorkspaceSize(
-    infiniopHardswishDescriptor_t desc,
+infiniStatus_t infiniopGetCastWorkspaceSize(
+    infiniopCastDescriptor_t desc,
     size_t *size
 );
 ```
@@ -93,7 +100,7 @@ infiniStatus_t infiniopGetHardswishWorkspaceSize(
 <div style="background-color: lightblue; padding: 1px;"> 参数：</div>
 
 - `desc`:
-  已使用 `infiniopGetHardswishWorkspaceSize()` 初始化的算子描述符；
+  已使用 `infiniopGetCastWorkspaceSize()` 初始化的算子描述符；
 - `size`:
   额外空间大小的计算结果的写入地址；
 
@@ -104,8 +111,8 @@ infiniStatus_t infiniopGetHardswishWorkspaceSize(
 ### 销毁算子描述符
 
 ```c
-infiniStatus_t infiniopDestroyHardswishDescriptor(
-    infiniopHardswishDescriptor_t desc
+infiniStatus_t infiniopDestroyCastDescriptor(
+    infiniopCastDescriptor_t desc
 );
 ```
 

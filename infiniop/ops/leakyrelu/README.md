@@ -1,26 +1,25 @@
 ﻿
-# `HardSwish`
+# `LeakyReLU`
 
-`HardSwish`, 即**近似激活函数**，为单目逐元素算子。其计算可被表述为：
+`LeakyReLU`，即**带泄露系数的激活函数**，为单目逐元素算子。其计算可被表述为：  
 
 $$
-output = \mathrm{HardSwish}(input) =
+output = \mathrm{LeakyReLU}(input) =
 \begin{cases}
-0, & input \leq -3 \\
-\dfrac{input \cdot (input+3)}{6}, & -3 < input < 3 \\
-input, & input \geq 3
+input, & input \geq 0 \\
+\text{negative\_slope} \cdot input, & input < 0
 \end{cases}
 $$
 
-其中 `input` 为输入，`output` 为输出。
+其中 `input` 为输入，`output` 为输出，`negative_slope`为u常数，构建算子时指定。
 
 ## 接口
 
 ### 计算
 
 ```c
-infiniStatus_t infiniopHardswish(
-    infiniopHardswishDescriptor_t desc,
+infiniStatus_t infiniopLeakyrelu(
+    infiniopLeakyreluDescriptor_t desc,
     void *workspace,
     size_t workspace_size,
     void *output,
@@ -32,7 +31,7 @@ infiniStatus_t infiniopHardswish(
 <div style="background-color: lightblue; padding: 1px;"> 参数： </div>
 
 - `desc`:
-  已使用 `infiniopCreateHardswishDescriptor()` 初始化的算子描述符；
+  已使用 `infiniopCreateLeakyreluDescriptor()` 初始化的算子描述符；
 - `workspace`:
   指向算子计算所需的额外工作空间；
 - `workspace_size`:
@@ -51,11 +50,12 @@ infiniStatus_t infiniopHardswish(
 ### 创建算子描述
 
 ```c
-infiniopCreateHardswishDescriptor(
+infiniopCreateLeakyreluDescriptor(
     infiniopHandle_t handle,
-    infiniopHardswishDescriptor_t *desc_ptr,
+    infiniopLeakyreluDescriptor_t *desc_ptr,
     infiniopTensorDescriptor_t output_desc,
-    infiniopTensorDescriptor_t input_desc
+    infiniopTensorDescriptor_t input_desc,
+    float negative_slope
 );
 ```
 
@@ -64,11 +64,13 @@ infiniopCreateHardswishDescriptor(
 - `handle`:
   `infiniopHandle_t` 类型的硬件控柄。详情请看：[`InfiniopHandle_t`]。
 - `desc_ptr`:
-  `infiniopHardswishDescriptor_t` 指针，指向将被初始化的算子描述符地址；
+  `infiniopLeakyreluDescriptor_t` 指针，指向将被初始化的算子描述符地址；
 - `output_desc` - { dT | (d1,...,dn) | (...) }:
   算子计算参数 `output` 的张量描述，支持原位计算。
 - `input_desc` - { dT | (d1,...,dn) | (...) }:
   算子计算参数 `input` 的张量描述，支持原位计算，支持多向广播。
+- `negative_slope` - float:
+  表示负半区的斜率。
 
 参数限制：
 
@@ -84,8 +86,8 @@ infiniopCreateHardswishDescriptor(
 ### 计算额外工作空间
 
 ```c
-infiniStatus_t infiniopGetHardswishWorkspaceSize(
-    infiniopHardswishDescriptor_t desc,
+infiniStatus_t infiniopGetLeakyreluWorkspaceSize(
+    infiniopLeakyreluDescriptor_t desc,
     size_t *size
 );
 ```
@@ -93,7 +95,7 @@ infiniStatus_t infiniopGetHardswishWorkspaceSize(
 <div style="background-color: lightblue; padding: 1px;"> 参数：</div>
 
 - `desc`:
-  已使用 `infiniopGetHardswishWorkspaceSize()` 初始化的算子描述符；
+  已使用 `infiniopGetLeakyreluWorkspaceSize()` 初始化的算子描述符；
 - `size`:
   额外空间大小的计算结果的写入地址；
 
@@ -104,8 +106,8 @@ infiniStatus_t infiniopGetHardswishWorkspaceSize(
 ### 销毁算子描述符
 
 ```c
-infiniStatus_t infiniopDestroyHardswishDescriptor(
-    infiniopHardswishDescriptor_t desc
+infiniStatus_t infiniopDestroyLeakyreluDescriptor(
+    infiniopLeakyreluDescriptor_t desc
 );
 ```
 
