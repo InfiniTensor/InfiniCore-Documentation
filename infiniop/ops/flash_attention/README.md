@@ -97,7 +97,8 @@ infiniStatus_t infiniopCreateFlashAttentionDescriptor(
     infiniopTensorDescriptor_t k_desc,
     infiniopTensorDescriptor_t v_desc,
     infiniopTensorDescriptor_t mask_desc,
-    infiniopAttentionMaskType_t mask_type) 
+    infiniopAttentionMaskType_t mask_type
+); 
 ```
 
 <div style="background-color: lightblue; padding: 1px;"> 参数：</div>
@@ -113,9 +114,9 @@ infiniStatus_t infiniopCreateFlashAttentionDescriptor(
 - `q_desc` - { dT | ((batch_size,) seq_len_q, num_heads_q, head_dim) | ($\ldots, 1$)}:
   算子计算参数 `q` 的张量描述，形状与 `out_desc` 一致，最后一维连续。
 - `k_desc` - { dT | ((batch_size,) seq_len_kv, num_heads_kv, head_dim) | ($\ldots, 1$)}:
-  算子计算参数 `k` 的张量描述，形状与 `out_desc` 一致，最后一维连续。
+  算子计算参数 `k` 的张量描述，最后一维连续。
 - `v_desc` - { dT | ((batch_size,) seq_len_kv, num_heads_kv, head_dim) | ($\ldots, 1$)}:
-  算子计算参数 `v` 的张量描述，形状与 `out_desc` 一致，最后一维连续。
+  算子计算参数 `v` 的张量描述，形状与 `k_desc` 一致，最后一维连续。
 - `mask_desc` - { dM | (seq_len_q, seq_len_kv) | (~)}:
   算子计算参数 `mask` 的张量描述，当 `mask_type=INFINIOP_ATTENTION_MASK_TYPE_FULL` 时，`mask` 不可为空，其余情况 `mask` 可为`nullptr`。
 - `mask_type` - `infiniopAttentionMaskType_t`:
