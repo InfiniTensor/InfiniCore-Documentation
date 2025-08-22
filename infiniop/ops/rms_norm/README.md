@@ -73,10 +73,10 @@ infiniStatus_t infiniopCreateRMSNormDescriptor(
   硬件控柄。详情请看：[`InfiniopHandle_t`]。
 - `desc_ptr`:
   存放将被初始化的算子描述符地址。
-- `y_desc` - { dT | (b, d) | (..., 1) }:
-  计算结果 `y` 的张量描述。
-- `x_desc` - { dT | (b, d) | (..., 1) }:
-  输入 `x` 的张量描述，形状和 `y_desc` 保持一致。
+- `y_desc` - { dT | (b, (n, )d) | (..., 1) }:
+  计算结果 `y` 的张量描述。支持两维或三维。
+- `x_desc` - { dT | (b, (n, )d) | (..., 1) }:
+  输入 `x` 的张量描述，形状和 `y_desc` 保持一致，最后一维必须连续。
 - `w_desc` - { dW | (d,) | (1,) }:
   权重 `w` 的张量描述。`w_desc` 为一维张量，长度和归一化维度的长度保持一致。如果权重张量为 `NULL`，则不进行缩放。
 - `epsilon` - float:
