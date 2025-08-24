@@ -6,7 +6,7 @@ LeakyReLU, 即 **非线性激活函数**算子，为单目逐元素算子。其�
 $$ 
 output = \text{LeakyReLU}({input}) =
 \begin{cases}
-{input}, & \text{if } {input} \geq 0 
+{input}, & \text{if } {input} \geq 0 \\
 {negative\_slope}* {input}, & \text{if } {input} < 0
 \end{cases} 
 $$
