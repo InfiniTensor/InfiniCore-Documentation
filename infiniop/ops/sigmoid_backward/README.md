@@ -8,6 +8,7 @@ $$
 
 $$
 
+
 $$
 
 \text{sigmoid}(x) = \frac{1}{1 + e^{-x}}
