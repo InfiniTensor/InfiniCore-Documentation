@@ -3,11 +3,15 @@
 `SigmoidBackward`，即 **Sigmoid 函数的反向传播算子**，为单输入、单输出的逐元素算子。其计算公式如下：
 
 $$
+
 \text{grad\_input} = \text{grad\_output} \cdot \text{sigmoid}(x) \cdot (1 - \text{sigmoid}(x))
+
 $$
 
 $$
+
 \text{sigmoid}(x) = \frac{1}{1 + e^{-x}}
+
 $$
 
 其中：
