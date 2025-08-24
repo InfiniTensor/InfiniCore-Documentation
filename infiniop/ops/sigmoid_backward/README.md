@@ -6,9 +6,6 @@ $$
 \text{grad\_input} = \text{grad\_output} \cdot \text{sigmoid}(x) \cdot (1 - \text{sigmoid}(x))
 $$
 
-
-fsfsdfsdfsdf
-
 $$
 \text{sigmoid}(x) = \frac{1}{1 + e^{-x}}
 $$
