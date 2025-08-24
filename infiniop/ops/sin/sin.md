@@ -1,9 +1,11 @@
 # Sin
 
 `Sin`, 即**正弦**算子，为单目算子。其计算可被表述为：
+
 $$
 output = sin(input)
 $$
+
 其中 `input` 为输入，`output` 为输出。
 
 ## 接口
