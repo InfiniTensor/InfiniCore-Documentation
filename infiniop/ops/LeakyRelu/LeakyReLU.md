@@ -3,11 +3,14 @@
 
 LeakyReLU, 即 **非线性激活函数**算子，为单目逐元素算子。其计算可被表述为：
 
-$$ output = \text{LeakyReLU}({input}) =
+$$ 
+output = \text{LeakyReLU}({input}) =
 \begin{cases}
 {input}, & \text{if } {input} \geq 0 \\[6pt]
 {negative\\_slope}* {input}, & \text{if } {input} < 0
-\end{cases} $$
+\end{cases} 
+$$
+
 其中 `input` 和  为输入，`output` 为输出, `negative_slope`为构建函数时的常数。
 
 ## 接口
