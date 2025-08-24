@@ -7,7 +7,7 @@ $$
 output = \text{LeakyReLU}({input}) =
 \begin{cases}
 {input}, & \text{if } {input} \geq 0 \\[6pt]
-{negative\\_slope}* {input}, & \text{if } {input} < 0
+{negative\_slope}* {input}, & \text{if } {input} < 0
 \end{cases} 
 $$
 
