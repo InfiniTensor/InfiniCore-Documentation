@@ -12,3 +12,13 @@
 - [`Softmax`](/infiniop/ops/softmax/README.md)
 - [`Sub`](/infiniop/ops/sub/README.md)
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
+
+- [`Exp`](/infiniop/ops/Exp/README.md)
+- [`Sin`](/infiniop/ops/Sin/README.md)
+- [`Cos`](/infiniop/ops/Cos/README.md)
+- [`LeakyRelu`](/infiniop/ops/LeakyRelu/README.md)
+- [`Tanh`](/infiniop/ops/Tanh/README.md)
+- [`sigmoid_backward`](/infiniop/ops/sigmoid_backward/README.md)
+- [`Hard_swish`](/infiniop/ops/hard_swish/README.md)
+- [`Cast`](/infiniop/ops/cast/README.md)
+- [`Where`](/infiniop/ops/where/README.md)
