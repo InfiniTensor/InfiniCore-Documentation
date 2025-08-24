@@ -19,5 +19,5 @@
 - [`Sigmoid Backward`](/infiniop/ops/sigmoid _backward/README.md)
 - [`HardSwish`](/infiniop/ops/hardswish/README.md)
 - [`Where`](/infiniop/ops/where/README.md)
-- [`Cast`](/infiniop/ops/hardswish/README.md)
-- [`LeakyReLU`](/infiniop/ops/where/README.md)
+- [`Cast`](/infiniop/ops/cast/README.md)
+- [`LeakyReLU`](/infiniop/ops/leaky_relu/README.md)
