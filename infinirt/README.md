@@ -183,9 +183,9 @@ infiniStatus_t infinirtMemcpy(void *dst, const void *src, size_t size, infinirtM
 - dst: 目标地址。
 - src: 源地址。
 - size: 拷贝的字节数。
-- kind: 枚举类型infinirtMemcpyKind_t 
+- kind: 枚举类型infinirtMemcpyKind_t
   其定义如下：
-``` c++ 
+``` c++
 typedef enum {
     INFINIRT_MEMCPY_H2H = 0, //Host to Host
     INFINIRT_MEMCPY_H2D = 1, //Host to Device
@@ -227,3 +227,67 @@ infiniStatus_t infinirtFreeAsync(void *ptr, infinirtStream_t stream);
 
 - ptr: 要释放的设备内存地址。
 - stream: 异步释放所用的流。
+
+### 5. 虚拟内存和物理内存管理
+
+#### 获取内存最小粒度
+
+``` c++
+infiniStatus_t infinirtGetMemGranularityMinimum(size_t *granularity);
+```
+
+- granularity: 返回内存分配的最小粒度大小。
+
+#### 创建物理内存
+
+``` c++
+infiniStatus_t infinirtCreatePhysicalMem(infinirtPhysicalMemoryHandle_t *pm_handle, size_t len);
+```
+
+- pm_handle: 返回创建的物理内存句柄。
+- len: 物理内存大小（单位：字节）。
+
+#### 释放物理内存
+
+``` c++
+infiniStatus_t infinirtReleasePhysicalMem(infinirtPhysicalMemoryHandle_t pm_handle);
+```
+
+- pm_handle: 需要释放的物理内存句柄。
+
+#### 创建虚拟内存
+
+``` c++
+infiniStatus_t infinirtCreateVirtualMem(void **vm, size_t len);
+```
+
+- vm: 返回创建的虚拟内存指针。
+- len: 虚拟内存大小（单位：字节）。
+
+#### 映射虚拟内存
+
+``` c++
+infiniStatus_t infinirtMapVirtualMem(void *vm, size_t len, size_t offset, infinirtPhysicalMemoryHandle_t pm_handle);
+```
+
+- vm: 虚拟内存指针。
+- len: 映射的内存大小（单位：字节）。
+- offset: 映射的偏移量。
+- pm_handle: 要映射的物理内存句柄。
+
+#### 解除虚拟内存映射
+``` c++
+infiniStatus_t infinirtUnmapVirtualMem(void *vm, size_t len);
+```
+
+- vm: 要解除映射的虚拟内存指针。
+- len: 解除映射的内存大小（单位：字节）。
+
+#### 释放虚拟内存
+
+``` c++
+infiniStatus_t infinirtReleaseVirtualMem(void *vm, size_t len);
+```
+
+- vm: 需要释放的虚拟内存指针。
+- len: 释放的内存大小（单位：字节）。
