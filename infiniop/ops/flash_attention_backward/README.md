@@ -2,12 +2,12 @@
 
 `FlashAttentionBackward` 是算子 `FlashAttention` 的反向传播。
 
-与正向传播相同，先进行分块。$K$ 和 $V$ 在外循环中逐块加载，而 $Q$ 在内循环中逐块加载。
+与正向传播相同，先进行分块。 $K$ 和 $V$ 在外循环中逐块加载，而 $Q$ 在内循环中逐块加载。
 
 1. 外循环中，每次循环需要先初始化当前块的 $\mathbf{d}\mathbf{K}_j$ 和 $\mathbf{d}\mathbf{V}_j$ 为 0；
 2. 内循环中，按以下顺序计算
     1. $\mathbf{S}_i^{(j)}=\mathbf{Q}_i\mathbf{K}_j^T\in\mathbb{R}^{B_r\times B_c}$
-    2. $\mathbf{P}_i^{(j)}=\exp(\mathbf{S}_{ij}-L_i)\in\mathbb{R}^{B_r\times B_c}$
+    2. $\mathbf{P}_i^{(j)}=\exp(\mathbf{S} _{ij}-L_i)\in\mathbb{R}^{B_r\times B_c}$
     3. $\mathbf{d}\mathbf{V}_j\leftarrow\mathbf{d}\mathbf{V}_j+(\mathbf{P}_i^{(j)})^\top\mathbf{d}\mathbf{O}_i\in\mathbb{R}^{B_c\times d}$
     4. $\mathbf{dP}_i^{(j)}=\mathbf{dO}_i\mathbf{V}_j^\top\in\mathbb{R}^{B_r\times B_c}$
     5. $\mathbf{dQ}_i\leftarrow\mathbf{dQ}_i+\mathbf{dS}_i^{(j)}\mathbf{K}_j$
