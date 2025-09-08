@@ -78,7 +78,8 @@ infiniStatus_t infiniopCreateRoPEDescriptor(
     infiniopTensorDescriptor_t x,
     infiniopTensorDescriptor_t pos_ids,
     infiniopTensorDescriptor_t sin_table,
-    infiniopTensorDescriptor_t cos_table
+    infiniopTensorDescriptor_t cos_table,
+    infiniopRoPEAlgo_t algo
 );
 ```
 
@@ -98,6 +99,8 @@ infiniStatus_t infiniopCreateRoPEDescriptor(
   sin 值表的张量描述，二维连续张量。
 - `cos_table` - { dT | (max_seq_len, head_dim/2) | (~) }:
   cos 值表的张量描述，要求与 sin 表相同。
+- `algo` - infiniopRoPEAlgo_t:
+  表示选择使用的 `RoPE` 算法。详见 [`infiniopRoPEAlgo_t`](#infiniopropealgo_t)。
 
 参数限制：
 
@@ -144,6 +147,18 @@ infiniStatus_t infiniopDestroyRoPEDescriptor(
 <div style="background-color: lightblue; padding: 1px;"> 返回值： </div>
 
 - [`INFINI_STATUS_SUCCESS`], [`INFINI_STATUS_DEVICE_TYPE_NOT_SUPPORTED`].
+
+### `infiniopRoPEAlgo_t`
+
+  `infiniopRoPEAlgo_t` 是一种用于代表和指定可执行 `RoPE` 不同算法的枚举类型。
+
+<div style="background-color: lightblue; padding: 1px;"> 数值： </div>
+
+- `INFINIOP_ROPE_ALGO_GPT_J`:
+  该算法使用 GPT-J 风格的 `RoPE` 操作，即每相邻的两个元素为一组分别参与 sin 和 cos 的计算。
+
+- `INFINIOP_ROPE_ALGO_GPT_NEOX`:
+  该算法使用 GPT-NeoX 风格的 `RoPE` 操作，即前一半和后一半对应位置的两个元素作为一组分别参与 sin 和 cos 的计算。
 
 ## 已知问题
 
