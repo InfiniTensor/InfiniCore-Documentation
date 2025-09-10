@@ -10,5 +10,6 @@
 - [`RMS Norm`](/infiniop/ops/rms_norm/README.md)
 - [`RoPE`](/infiniop/ops/rope/README.md)
 - [`Softmax`](/infiniop/ops/softmax/README.md)
+- [`Softplus`](/infiniop/ops/softplus/README.md)
 - [`Sub`](/infiniop/ops/sub/README.md)
 - [`SwiGLU`](/infiniop/ops/swiglu/README.md)
