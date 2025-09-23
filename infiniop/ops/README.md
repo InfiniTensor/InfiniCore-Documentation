@@ -4,6 +4,7 @@
 - [`Causal Softmax`](/infiniop/ops/causal_softmax/README.md)
 - [`Clip`](/infiniop/ops/clip/README.md)
 - [`GEMM`](/infiniop/ops/gemm/README.md)
+- [`LogSoftmax`](/infiniop/ops/logsoftmax/README.md)
 - [`Mul`](/infiniop/ops/mul/README.md)
 - [`Random Sample`](/infiniop/ops/random_sample/README.md)
 - [`Rearrange`](/infiniop/ops/rearrange/README.md)
