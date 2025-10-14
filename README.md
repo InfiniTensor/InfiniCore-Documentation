@@ -1,4 +1,4 @@
-# InfiniCore 文档
+# InfiniCore v0.1.0
 
 ## 项目简介
 
