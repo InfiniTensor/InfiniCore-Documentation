@@ -44,7 +44,7 @@
 
 详见 [InfiniOP算子列表](/infiniop/ops/README.md)
 
-[`InifiniRT`]:/
+[`InifiniRT`]:/infinirt/README.md
 [`infiniopHandle_t`]:/infiniop/handle/README.md
 [`infiniopTensorDescriptor_t`]:/infiniop/tensor/README.md
 [`InfiniStatus_t`]:/common/status/README.md
