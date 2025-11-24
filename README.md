@@ -9,7 +9,7 @@
 ## 文档目录
 
 ### InfiniCore
-- [`Python APIs`]
+- [`Python APIs`](python/README.md)
 
 - [`C++ APIs`]
 
@@ -22,7 +22,7 @@
 - [`InfiniCCL`]：统一集合通信库，提供常用的集合通信功能，包括点对点、广播、聚合等。
 
 
-[`Python APIs`]:README.md
+[`Python APIs`]:python/README.md
 [`C++ APIs`]:README.md
 [`InfiniRT`]:/infinirt/README.md
 [`InfiniOP`]:/infiniop/README.md
