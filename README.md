@@ -21,9 +21,14 @@
 
 - [`InfiniCCL`]：统一集合通信库，提供常用的集合通信功能，包括点对点、广播、聚合等。
 
+### 如何将新的硬件接入InfiniCore
+
+- [`硬件接入说明`]：硬件平台需要提供的接口和功能，需要实现的各种方法。
+
 
 [`Python APIs`]:python/README.md
 [`C++ APIs`]:infinicore/README.md
 [`InfiniRT`]:/infinirt/README.md
 [`InfiniOP`]:/infiniop/README.md
 [`InfiniCCL`]:/infiniccl/README.md
+[`硬件接入说明`]:/hardware_integration/README.md
