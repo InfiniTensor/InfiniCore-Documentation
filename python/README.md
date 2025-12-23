@@ -10,9 +10,12 @@
 | `dtype` / `float16` 等 | 数据类型枚举 (`python/infinicore/dtype.py`)。 |
 | `Tensor` | 张量包装类 (`python/infinicore/tensor.py`)，内部封装底层 `_infinicore` 对象。 |
 | `empty` / `zeros` / `ones` / `empty_like` 等 | 张量构造函数（`python/infinicore/tensor.py`），默认要求显式传入 `dtype` 与 `device`。 |
-| 顶层算子（`add`、`matmul`、`rearrange`、`attention`） | 暴露在 `infinicore` 命名空间下，对应实现位于 `python/infinicore/ops/`。 |
-| `infinicore.nn` | 神经网络相关模块集合，未来可扩展更多组件。 |
-| `infinicore.nn.functional` | 函数式算子集合 (`python/infinicore/nn/functional.py`)。 |
+| `context` | 运行时上下文模块 (`python/infinicore/context.py`)，提供设备管理、流同步等功能。 |
+| `DeviceEvent` | 设备事件类 (`python/infinicore/device_event.py`)，用于同步和性能测量。 |
+| `utils` | 工具函数模块 (`python/infinicore/utils.py`)，提供数据类型转换等功能。 |
+| 顶层算子（`add`、`matmul`、`mul`、`narrow`、`rearrange`、`attention`） | 暴露在 `infinicore` 命名空间下，对应实现位于 `python/infinicore/ops/`。 |
+| `infinicore.nn` | 神经网络相关模块集合，包括 `Linear`、`RMSNorm`、`RoPE`、`Embedding` 等。 |
+| `infinicore.nn.functional` | 函数式算子集合 (`python/infinicore/nn/functional/`)，包括 `rope`、`random_sample`、`linear`、`embedding` 等。 |
 | `use_ntops` / `infinicore.ntops` | 若系统安装 `ntops` 包，将自动置位 `use_ntops=True` 并暴露原始模块。 |
 
 所有符号在包的 `__init__.py` 中进行了显式导出，可直接通过 `import infinicore as ic` 后使用。
@@ -29,19 +32,32 @@
 - [`ones`](tensor/README.md#构造函数)
 - [`empty_like`](tensor/README.md#构造函数)
 - [`from_blob`](tensor/README.md#构造函数)
+- [`context`](context/README.md)
+- [`DeviceEvent`](device_event/README.md)
+- [`utils`](utils/README.md)
 - [`add`](ops/add/README.md)
 - [`matmul`](ops/matmul/README.md)
+- [`mul`](ops/mul/README.md)
+- [`narrow`](ops/narrow/README.md)
 - [`rearrange`](ops/rearrange/README.md)
 - [`attention`](ops/attention/README.md)
 - [`nn`](nn/README.md)
 - [`nn.Module`](nn/modules/module/README.md)
 - [`nn.ModuleList`](nn/modules/module_list/README.md)
+- [`nn.Linear`](nn/modules/linear/README.md)
+- [`nn.RMSNorm`](nn/modules/normalization/README.md)
+- [`nn.RoPE`](nn/modules/rope/README.md)
+- [`nn.Embedding`](nn/modules/sparse/README.md)
 - [`nn.Parameter`](nn/parameter/README.md)
 - [`nn.functional`](nn/functional/README.md)
 - [`nn.functional.causal_softmax`](nn/functional/causal_softmax/README.md)
 - [`nn.functional.rms_norm`](nn/functional/rms_norm/README.md)
 - [`nn.functional.silu`](nn/functional/silu/README.md)
 - [`nn.functional.swiglu`](nn/functional/swiglu/README.md)
+- [`nn.functional.rope`](nn/functional/rope/README.md)
+- [`nn.functional.random_sample`](nn/functional/random_sample/README.md)
+- [`nn.functional.linear`](nn/functional/linear/README.md)
+- [`nn.functional.embedding`](nn/functional/embedding/README.md)
 
 ## 张量与构造函数
 

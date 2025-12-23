@@ -11,7 +11,7 @@
 ### InfiniCore
 - [`Python APIs`](python/README.md)
 
-- [`C++ APIs`]
+- [`C++ APIs`](infinicore/README.md)
 
 ### InfiniCore-C
 
@@ -23,7 +23,7 @@
 
 
 [`Python APIs`]:python/README.md
-[`C++ APIs`]:README.md
+[`C++ APIs`]:infinicore/README.md
 [`InfiniRT`]:/infinirt/README.md
 [`InfiniOP`]:/infiniop/README.md
 [`InfiniCCL`]:/infiniccl/README.md

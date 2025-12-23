@@ -7,7 +7,7 @@
 | 子模块 | 说明 |
 | --- | --- |
 | `functional` | 函数式算子集合，接口文档见 [`functional/README.md`](functional/README.md)。 |
-| `modules` | 模块容器类，包含 [`Module`](modules/module/README.md) 和 [`ModuleList`](modules/module_list/README.md)。 |
+| `modules` | 模块容器类，包含 [`Module`](modules/module/README.md)、[`ModuleList`](modules/module_list/README.md)、[`Linear`](modules/linear/README.md)、[`RMSNorm`](modules/normalization/README.md)、[`RoPE`](modules/rope/README.md)、[`Embedding`](modules/sparse/README.md) 等。 |
 | `Parameter` | 参数类，用于标识可训练参数，文档见 [`parameter/README.md`](parameter/README.md)。 |
 
 ## 使用示例
