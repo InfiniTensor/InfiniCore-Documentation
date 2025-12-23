@@ -12,6 +12,8 @@
 
 - [`add`](add/README.md)
 - [`matmul`](matmul/README.md)
+- [`mul`](mul/README.md)
+- [`narrow`](narrow/README.md)
 - [`rearrange`](rearrange/README.md)
 - [`attention`](attention/README.md)
 

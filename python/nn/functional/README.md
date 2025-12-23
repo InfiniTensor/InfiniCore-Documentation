@@ -14,6 +14,10 @@
 - [`rms_norm`](rms_norm/README.md)：Root Mean Square LayerNorm。
 - [`silu`](silu/README.md)：SiLU（Sigmoid Linear Unit）激活。
 - [`swiglu`](swiglu/README.md)：SwiGLU 前向门控。
+- [`rope`](rope/README.md)：旋转位置嵌入（Rotary Position Embedding）。
+- [`random_sample`](random_sample/README.md)：随机采样，支持 nucleus/top-k 过滤。
+- [`linear`](linear/README.md)：线性变换。
+- [`embedding`](embedding/README.md)：嵌入查找。
 
 ## 示例
 

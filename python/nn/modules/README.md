@@ -6,6 +6,10 @@
 
 - [`Module`](module/README.md)：所有神经网络模块的基类，提供参数管理、状态字典等功能。
 - [`ModuleList`](module_list/README.md)：模块列表容器，用于管理多个子模块。
+- [`Linear`](linear/README.md)：线性层模块。
+- [`RMSNorm`](normalization/README.md)：RMS 归一化层模块。
+- [`RoPE`](rope/README.md)：旋转位置嵌入模块。
+- [`Embedding`](sparse/README.md)：嵌入层模块。
 
 ## 使用示例
 
@@ -26,5 +30,3 @@ class MyModel(Module):
 
 - [`nn` 模块概览](../README.md)
 - [`Parameter`](../parameter/README.md)
-
-
